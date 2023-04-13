@@ -55,7 +55,3 @@ Start the server
 ```bash
   npm run start
 ```
-
-## License
-
-[MIT](https://choosealicense.com/licenses/mit/)
