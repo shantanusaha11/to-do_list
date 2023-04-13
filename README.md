@@ -6,7 +6,7 @@ A Todo app made using React and Ant Design is a web application that allows user
 
 The app allows users to add, edit, and delete tasks. The user interface is designed using Ant Design components, which give the app a clean and modern look.
 
-When a user adds a new task, they can specify a due date and priority level for the task.
+When a user adds a new task, they can specify a title, description, due date etc.
 
 The app also includes search and filter functionality, which allows users to easily find tasks based on keywords or specific criteria such as due date or priority level.
 
