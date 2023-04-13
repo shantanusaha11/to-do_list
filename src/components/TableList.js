@@ -87,7 +87,7 @@ const TableList = ({ allTodos }) => {
 
   const handleOk = () => {
     setIsModalOpen(false);
-    editTodo({...formData, timestamp: dayjs(new Date()).format('hh-mm A'), tags: allTags})
+    editTodo({...formData, timestamp: dayjs(new Date()).format('DD/MM/YYYY hh-mm A'), tags: allTags})
     successAlert("Todo edited successfully");
   };
 
@@ -221,6 +221,7 @@ const TableList = ({ allTodos }) => {
       title: "Timestamp",
       dataIndex: "timestamp",
       key: "timestamp",
+      width: "20%",
       sorter: (a, b) => sortValues(a,b),
     },
   
@@ -230,8 +231,8 @@ const TableList = ({ allTodos }) => {
       key: "action",
       render: (_,data) => (
         <Space>
-          <Button type='primary' size='large' onClick={()=>handleClick(data)}>Edit</Button>
-          <Button type='primary' size='large' onClick={()=>showDeleteConfirm(data.id,deleteTodo)}>Delete</Button>
+          <Button type='primary' size='middle' onClick={()=>handleClick(data)}>Edit</Button>
+          <Button type='primary' size='middle' onClick={()=>showDeleteConfirm(data.id,deleteTodo)}>Delete</Button>
         </Space>
       ),
     },

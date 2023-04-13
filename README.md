@@ -1,35 +1,61 @@
-Todo Web Application
-This is a web application for managing your daily tasks. With this application, you can add, edit, and delete your todos.
+# Todo app
 
-Technologies Used
-The following technologies were used to develop this web application:
+A brief description of what this project does
 
-React
-Ant Design
-Node.js
-Installation
-To install this application on your local machine, follow these steps:
+A Todo app made using React and Ant Design is a web application that allows users to create a list of tasks that they need to complete. The app is built using the React JavaScript library, which enables the creation of dynamic user interfaces, and Ant Design, which is a popular UI component library for React.
 
-Clone this repository: git clone https://github.com/your-username/todo-app.git
-Move into the project directory: cd todo-app
-Install the dependencies: npm install
-Start the application: npm start
-Usage
-To use the application, follow these steps:
+The app allows users to add, edit, and delete tasks. The user interface is designed using Ant Design components, which give the app a clean and modern look.
 
-Open your browser and go to http://localhost:3000/
-Add a new todo by clicking on the "Add Todo" button and filling out the form.
-Edit a todo by clicking on the "Edit" button next to the todo you want to edit and updating the form.
-Delete a todo by clicking on the "Delete" button next to the todo you want to delete.
-Search for a todo by typing in the search box at the top of the table.
-Filter the table by clicking on the filter icon next to each column.
-Contributing
-If you would like to contribute to this project, follow these steps:
+When a user adds a new task, they can specify a due date and priority level for the task.
 
-Fork this repository
-Create a new branch: git checkout -b feature/your-feature-name
-Make your changes and commit them: git commit -m "your commit message"
-Push your changes to the branch: git push origin feature/your-feature-name
-Submit a pull request
-License
-This project is licensed under the MIT license.
+The app also includes search and filter functionality, which allows users to easily find tasks based on keywords or specific criteria such as due date or priority level.
+
+Overall, a Todo app made using React and Ant Design provides users with a simple and intuitive way to manage their tasks and stay organized.
+
+## Documentation
+
+1.) Go to link (https://neon-florentine-948cc0.netlify.app)
+
+2.) Fill up the details like - title, description, status, tags, due date.
+
+3.) After filling all the details press submit button.
+
+4.) Your Todo will be displayed on **Your Todo** section
+
+5.) You can also **delete** and **edit** the todos.
+
+## Tech Stack
+
+**Client:** React, React context, Ant Design
+
+**Server:** Mockapi
+
+## Run Locally
+
+Clone the project
+
+```bash
+  git clone https://github.com/shantanusaha11/to-do_list.git
+```
+
+Go to the project directory
+
+```bash
+  cd my-project
+```
+
+Install dependencies
+
+```bash
+  npm install
+```
+
+Start the server
+
+```bash
+  npm run start
+```
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)

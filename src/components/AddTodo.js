@@ -66,7 +66,7 @@ const AddTodo = () => {
 
   // calling api to send data to server
   const sendFormData = ()=>{
-    addTodo({...formData, timestamp: dayjs(new Date()).format('hh-mm A'), tags: inputTags});
+    addTodo({...formData, timestamp: dayjs(new Date()).format('DD/MM/YYYY hh-mm A'), tags: inputTags});
     setFormData({title: "", description: "", due_date: "", timestamp: "", tags: [], status: ""})
     setInputTags([]);
   }
