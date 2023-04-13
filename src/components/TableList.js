@@ -164,7 +164,13 @@ const TableList = ({ allTodos }) => {
       title: "Description",
       dataIndex: "description",
       key: "description",
+      width: "20%",
       sorter: (a, b) => sortValues(a,b),
+      render: (_, { description }) => (
+        <>
+          {`${description.slice(0,20)}...`}
+        </>
+      )
     },
   
     {
@@ -239,7 +245,7 @@ const TableList = ({ allTodos }) => {
   ];
 
   return (
-    <Card title="Your Todos" bordered={false} style={{ width: 1100, marginLeft: 200, marginTop: 10 }}>
+    <Card title="Your Todos" bordered={false} style={{ width: 1300, marginLeft: 100, marginTop: 10 }}>
       <Table columns={columns} dataSource={rows} rowKey={(row)=>row.id} wrapperCol={{span: 16}} labelCol={{span: 4}} />
 
       <Modal title="Edit Todo" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>

@@ -79,7 +79,7 @@ const AddTodo = () => {
   }
   
   return (
-    <Card title="Add Todo" bordered={true} style={{ width: 1100, marginLeft: 200, marginTop: 10 }}>
+    <Card title="Add Todo" bordered={true} style={{ width: 1300, marginLeft: 100, marginTop: 10 }}>
       <Form wrapperCol={{span: 16}} labelCol={{span: 4}}>
         <Form.Item label="Title" name="title">
             <Input placeholder="Title" maxLength={100} value={formData.title} showCount onChange={(e)=>setFormData({...formData, title: e.target.value})}/>
