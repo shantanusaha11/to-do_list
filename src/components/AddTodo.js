@@ -1,8 +1,8 @@
 import React,{useState, useEffect, useRef, useContext} from 'react';
 import {Form, Input, DatePicker, Button, Tag, Tooltip, Space, Select, Card} from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
-import todoContext from '../context/todo/todoContext'
 import {successAlert} from './Alert';
+import todoContext from '../context/todo/todoContext'
 import dayjs from 'dayjs'
 
 
@@ -80,14 +80,14 @@ const AddTodo = () => {
   
   return (
     <Card title="Add Todo" bordered={true} style={{ width: 1300, marginLeft: 100, marginTop: 10 }}>
-      <Form wrapperCol={{span: 16}} labelCol={{span: 4}}>
-        <Form.Item label="Title" name="title">
+      <Form wrapperCol={{span: 16}} labelCol={{span: 4}} onFinishFailed={(errorInfo) =>console.log('Failed:', errorInfo)}>
+        <Form.Item label="Title" name="title" rules={[{required: true, message: 'Please input your title!'}]}>
             <Input placeholder="Title" maxLength={100} value={formData.title} showCount onChange={(e)=>setFormData({...formData, title: e.target.value})}/>
         </Form.Item>
-        <Form.Item label="Description">
+        <Form.Item label="Description" name="description" rules={[{required: true, message: 'Please input your description!'}]}>
             <TextArea rows={4} placeholder="Description" value={formData.description} showCount maxLength={1000} onChange={(e)=>setFormData({...formData, description: e.target.value})}/>
         </Form.Item>
-        <Form.Item label="Select">
+        <Form.Item label="Status" name="status" rules={[{required: true, message: 'Please input your status!'}]}>
             <Select placeholder="Status" onChange={(value)=>{setFormData({...formData, status: value})}}>
               <Select.Option value="OPEN">OPEN</Select.Option>
               <Select.Option value="WORKING">WORKING</Select.Option>
@@ -95,7 +95,7 @@ const AddTodo = () => {
               <Select.Option value="OVERDUE">OVERDUE</Select.Option>
             </Select>
           </Form.Item>
-        <Form.Item label="Tags" name="allTags">
+        <Form.Item label="Tags" name="allTags" requiredMark="optional">
           <Space size={[0, 8]} wrap>
           <Space size={[0, 8]} wrap>
             {inputTags.map((tag, index) => {
@@ -117,7 +117,7 @@ const AddTodo = () => {
           ) : (<Tag style={{borderStyle: 'dashed'}} onClick={showInput}> <PlusOutlined /> New Tag</Tag>)}
           </Space>
         </Form.Item>
-        <Form.Item label="Due Date">
+        <Form.Item label="Due Date" requiredMark="optional">
             <DatePicker style={{borderRadius: 0}} placeholder="Due Date" disabledDate={(current) => current && current < dayjs().startOf('day')} onChange={(selectedDate)=> setFormData({...formData, due_date: dayjs(selectedDate).format("DD/MM/YYYY")})}/>
         </Form.Item>
         <Form.Item wrapperCol={{ offset: 4}}>

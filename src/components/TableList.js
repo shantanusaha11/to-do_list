@@ -248,15 +248,15 @@ const TableList = ({ allTodos }) => {
     <Card title="Your Todos" bordered={false} style={{ width: 1300, marginLeft: 100, marginTop: 10 }}>
       <Table columns={columns} dataSource={rows} rowKey={(row)=>row.id} wrapperCol={{span: 16}} labelCol={{span: 4}} />
 
-      <Modal title="Edit Todo" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
-        <Form style={{padding: "10px"}} wrapperCol={{span: 16}} labelCol={{span: 4}} >
-          <Form.Item label="Title">
-              <Input placeholder="Title" maxLength={100} value={formData.title} showCount onChange={(e)=>setFormData({...formData, title: e.target.value})}/>
+      <Modal title="Edit Todo" width={1000} open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
+        <Form style={{padding: "10px"}} wrapperCol={{span: 16}} labelCol={{span: 4}} onFinishFailed={(errorInfo) =>console.log('Failed:', errorInfo)}>
+          <Form.Item label="Title" required>
+              <Input placeholder="Title" maxLength={100} name="title" value={formData.title} showCount onChange={(e)=>setFormData({...formData, title: e.target.value})}/>
           </Form.Item>
-          <Form.Item label="Description">
+          <Form.Item label="Description" required>
               <TextArea rows={4} placeholder="Description" showCount maxLength={1000} value={formData.description} onChange={(e)=>setFormData({...formData, description: e.target.value})}/>
           </Form.Item>
-          <Form.Item label="Select">
+          <Form.Item label="Select" required rules={[{required: true, message: 'Please input your status!'}]}>
           <Select placeholder="Status" value={formData.status} onChange={(value)=>setFormData({...formData, status: value})}>
             <Select.Option value="OPEN">OPEN</Select.Option>
             <Select.Option value="WORKING">WORKING</Select.Option>
@@ -264,7 +264,7 @@ const TableList = ({ allTodos }) => {
             <Select.Option value="OVERDUE">OVERDUE</Select.Option>
           </Select>
         </Form.Item>
-          <Form.Item label="Tags" >
+          <Form.Item label="Tags" requiredMark="optional">
           <Space size={[0, 8]} wrap>
             <Space size={[0, 8]} wrap>
               {allTags.map((tag, index) => {
@@ -286,7 +286,7 @@ const TableList = ({ allTodos }) => {
               ) : (<Tag style={{borderStyle: 'dashed'}} onClick={showInput}> <PlusOutlined /> New Tag</Tag>)}
             </Space>
           </Form.Item>
-          <Form.Item label="Due Date">
+          <Form.Item label="Due Date" requiredMark="optional">
             <DatePicker style={{borderRadius: 0}} placeholder="Due Date" value={dayjs(formData.due_date,"DD/MM/YYYY")} disabledDate={(current) => current && current < dayjs().startOf('day')} onChange={(selectedDate)=> setFormData({...formData, due_date: dayjs(selectedDate).format("DD/MM/YYYY")})}/>
           </Form.Item>
         </Form>
