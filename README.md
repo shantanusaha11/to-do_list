@@ -8,7 +8,7 @@ The app allows users to add, edit, and delete tasks. The user interface is desig
 
 When a user adds a new task, they can specify a title, description, due date etc.
 
-The app also includes search and filter functionality, which allows users to easily find tasks based on keywords or specific criteria such as due date or priority level.
+The app also includes search, filter and pagination functionality, which allows users to easily find tasks based on keywords or specific criteria such as due date or priority level. Pagination is set up to display 10 entries per page.
 
 Overall, a Todo app made using React and Ant Design provides users with a simple and intuitive way to manage their tasks and stay organized.
 
