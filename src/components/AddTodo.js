@@ -10,7 +10,7 @@ const AddTodo = () => {
   const {addTodo} = useContext(todoContext)
   const {TextArea} = Input;
   
-  const [formData, setFormData] = useState({title: "", description: "", due_date: "", timestamp: "", tags: [], status: ""})
+  const [formData, setFormData] = useState({title: "", description: "", due_date: "", timestamp: "", tags: [], status: "OPEN"})
   const [inputVisible, setInputVisible] = useState(false);
   const [inputValue, setInputValue] = useState('');
   const [editInputIndex, setEditInputIndex] = useState(-1);
@@ -88,7 +88,7 @@ const AddTodo = () => {
             <TextArea rows={4} placeholder="Description" value={formData.description} showCount maxLength={1000} onChange={(e)=>setFormData({...formData, description: e.target.value})}/>
         </Form.Item>
         <Form.Item label="Status" name="status" rules={[{required: true, message: 'Please input your status!'}]}>
-            <Select placeholder="Status" onChange={(value)=>{setFormData({...formData, status: value})}}>
+            <Select placeholder="Status" defaultValue={formData.status} onChange={(value)=>{setFormData({...formData, status: value})}}>
               <Select.Option value="OPEN">OPEN</Select.Option>
               <Select.Option value="WORKING">WORKING</Select.Option>
               <Select.Option value="DONE">DONE</Select.Option>
